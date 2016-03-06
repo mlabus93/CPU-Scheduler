@@ -42,7 +42,9 @@ public class FileRead {
 				scanner.next();
 				newProcess.setArrival(scanner.nextInt());
 				scanner.next();
-				newProcess.setBurst(scanner.nextInt());
+				int burst = scanner.nextInt();
+				newProcess.setOriginalBurst(burst);
+				newProcess.setBurst(burst);
 				processes.add(newProcess);
 				newProcess = new ProcessClass();
 			}

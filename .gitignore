@@ -47,3 +47,8 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+
+
+# Specific Files
+Assignment2.jar
+assignment2.xml

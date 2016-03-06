@@ -8,13 +8,15 @@ package App;
  *
  */
 public class ProcessClass {
-	String name;
-	String algorithm;
-	int arrival;
-	int burst;
-	int quantum;
-	int wait;
-	int turnaround;
+	private String name;
+	private String algorithm;
+	private int arrival;
+	private int burst;
+	private int originalBurst;
+	private int quantum;
+	private int wait;
+	private int turnaround;
+	private boolean arrived = false;
 	
 	public String getName() {
 		return name;
@@ -38,6 +40,14 @@ public class ProcessClass {
 	
 	public void setArrival(int arrival) {
 		this.arrival = arrival;
+	}
+	
+	public int getOriginalBurst() {
+		return originalBurst;
+	}
+	
+	public void setOriginalBurst(int originalBurst) {
+		this.originalBurst = originalBurst;
 	}
 	
 	public int getBurst() {
@@ -70,6 +80,14 @@ public class ProcessClass {
 	}
 	
 	private void setTurnaround() {
-		this.turnaround = wait + burst;
+		this.turnaround = wait + originalBurst;
+	}
+	
+	public boolean hasArrived() {
+		return arrived;
+	}
+	
+	public void setArrived(boolean arrived) {
+		this.arrived = arrived;
 	}
 }

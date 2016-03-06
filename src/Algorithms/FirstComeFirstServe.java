@@ -66,27 +66,4 @@ public class FirstComeFirstServe extends AlgorithmBase {
 		}
 		return sb.toString();
 	}
-	
-	@Override
-	protected void CreateReadyQueue(ArrayList<ProcessClass> processes) {
-		ArrayList<ProcessClass> processList = CreateTempProcessList(processes);
-		ProcessClass firstProcess;
-		for (int i=0; i<processes.size(); i++) {
-			firstProcess = GetFirstArrival(processList);
-			readyQueue.add(firstProcess);
-			processList.remove(firstProcess);
-		}
-	}
-	
-	private ProcessClass GetFirstArrival(ArrayList<ProcessClass> processes) {
-		ProcessClass firstProcess = processes.get(0);
-		int firstArrival = firstProcess.getArrival();
-		for (ProcessClass process : processes) {
-			if (process.getArrival() < firstArrival) {
-				firstArrival = process.getArrival();
-				firstProcess = process;
-			}
-		}
-		return firstProcess;
-	}
 }

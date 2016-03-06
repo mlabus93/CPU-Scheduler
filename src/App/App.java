@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import Algorithms.*;
 import Utilities.FileRead;
+import Utilities.FileWrite;
 
 /**
  * @author michaellabus
@@ -32,14 +33,19 @@ public class App {
 				result = fcfs.GetResults();
 				break;
 			case "sjf":
+				ShortestJobFirst sjf = new ShortestJobFirst(processes, scheduler.getRunFor());
+				result = sjf.GetResults();
 				break;
 			case "rr":
-				System.out.println("Not implemented.");
+				RoundRobin rr = new RoundRobin(processes, scheduler.getRunFor());
+				result = rr.GetResults();
 				break;
 			default:
 				System.out.println("Invalid algorithm type.");
 				break;
 		}
+		FileWrite fw = new FileWrite();
+		fw.WriteFile(result);
 		System.out.println(result);
 	}
 
